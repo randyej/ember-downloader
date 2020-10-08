@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* ====================================================================
+ *
+ * downloader container styles
+ *
+ * ==================================================================== */
+.ed-ember-downloader {
+  border: 1px solid #BEBEBE;
+}
+
+.ed-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #BEBEBE;
+  padding: 17px 7px 17px 7px;
+}
+
+.ed-header button {
+  border: none;
+  /*outline: none;*/
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.ed-header h3 {
+  display: inline;
+  font-size: 1.05rem;
+  font-weight: normal;
+}
+
+/*.ed-header button.checkbox {
+}*/
+
+.ed-header h3.selected-label {
+  margin-left: 17px;
+}
+
+.ed-header button.download {
+  margin-left: 51px;
+}
+
+.ed-table-header table, .ed-table-body table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.ed-table-header-td, .ed-table-body-td {
+  border-bottom: 1px solid #BEBEBE;
+  padding: 17px 7px 17px 7px;
+  font-size: .9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ed-table-body-tr:hover {
+  background-color: #F5F5F5;
+}
+
+.ed-table-body-tr.selected {
+  background-color: #D3D3D3;
+}
+
+.ed-table-body-td {
+  font-size: .75rem;
+}
+
+.ed-col-checkbox {
+  width: 5%;
+}
+
+.ed-col-name {
+  width: 15%;
+}
+
+.ed-col-device {
+  width: 15%;
+}
+
+.ed-col-path {
+  width: 50%;
+}
+
+.ed-col-status {
+  width: 15%;
+  white-space: nowrap;
+}
+
+.ed-col-status svg[data-icon=circle] {
+  color: mediumseagreen;
+}
+
+.ed-status-icon-spacer {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+/* ====================================================================
+ *
+ * downloader/checkbox styles
+ *
+ * *** icon size is off when in a table for some reason
+ * *** the styles are being applied, which can be seen in the dev tools,
+ *     but the check-square doesn't appear
+ *
+ * - https://github.com/FortAwesome/ember-fontawesome
+ * - https://fontawesome.com/icons?d=gallery&m=free
+ * - https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
+ * - https://fontawesome.com/cheatsheet
+ * ==================================================================== */
+.ed-checkbox-wrapper { /* outer <label> */
+  position: relative;
+  overflow: hidden;
+  color: black;
+}
+
+.ed-checkbox-wrapper input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  /*
+    even though the native input is invisible, it is still clickable,
+    so the left/top/width/height settings are all to make the input
+    clickable area bigger & centered'ish over the ::before checkbox icon
+  */
+  left: -.35rem;
+  top: -.35rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  cursor: pointer;
+}
+
+/* custom unchecked checkbox */
+/* equivalent to {{fa-icon "square" prefix="far"}} ... unicode content of f0c8 */
+.ed-checkbox-wrapper input[type=checkbox]+span::before {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c8";
+}
+
+/* custom checked checkbox */
+/* equivalent to {{fa-icon "check-square" prefix="fas"}} ... unicode content of f14a */
+.ed-checkbox-wrapper input[type=checkbox]:checked+span::before {
+  font-weight: 400;
+  content: "\f14a";
+}
+
+/* custom focused checkbox */
+.ed-checkbox-wrapper input[type=checkbox]:focus+span::before {
+  outline: 0;
+  box-shadow: -1px 1px 2px 1px rgb(0, 119, 255), 0 0 4px 2px rgb(0, 119, 255) inset;
+}
+
+/* hovered */
+.ed-checkbox-wrapper input[type=checkbox]:not(:disabled):hover+span::before {
+  cursor: pointer;
+  color: rgb(0, 119, 255);
+}
+
+/* disabled */
+.ed-checkbox-wrapper input[type=checkbox]:disabled+span::before {
+  color: #cccccc;
+}

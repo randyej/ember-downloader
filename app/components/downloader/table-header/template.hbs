@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      {{#each columns as |column|}}
+        <td class="ed-table-header-td {{if column.titleClassNames column.titleClassNames}}">
+          {{#if (eq column.field "status")}}
+            <span class="ed-status-icon-spacer"></span>
+          {{/if}}
+          {{column.title}}
+        </td>
+      {{/each}}
+    </tr>
+  </thead>
+</table>

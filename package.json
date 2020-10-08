@@ -17,8 +17,17 @@
     "start": "ember serve",
     "test": "ember test"
   },
+  "dependencies": {
+    "ember-cli-string-helpers": "5.0.0",
+    "ember-composable-helpers": "4.2.2",
+    "ember-truth-helpers": "2.1.0"
+  },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",
+    "@fortawesome/ember-fontawesome": "^0.2.2",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.5.2",

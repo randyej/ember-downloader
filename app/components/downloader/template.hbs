@@ -1,0 +1,23 @@
+{{downloader/header
+  selectableRowCount=selectableRowCount
+  selectedRowCount=selectedRowCount
+  toggleSelectAll=(action "toggleSelectAll")
+  downloadSelected=(action "downloadSelected")
+}}
+
+{{downloader/table-header tableConfig=tableConfig}}
+
+{{downloader/table-body
+  tableConfig=tableConfig
+  tableData=tableData
+  selectedRows=selectedRows
+  toggleSelectRow=(action "toggleSelectRow")
+}}
+
+{{!-- font awesome icons
+{{fa-icon "square" prefix="far"}} f0c8 <br>
+{{fa-icon "minus-square" prefix="fas"}} f146  <br>
+{{fa-icon "check-square" prefix="fas"}} f14a <br>
+{{fa-icon "circle" prefix="fas"}} f111 <br>
+{{fa-icon "download" prefix="fas"}} f019 <br>
+--}}

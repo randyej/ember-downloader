@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    {{#each tableData as |row|}}
+      <tr class="ed-table-body-tr {{if (contains row selectedRows) "selected"}}" {{!--action toggleSelectRow row on="click"--}}>
+        {{#each columns as |column|}}
+          <td class="ed-table-body-td {{if column.fieldClassNames column.fieldClassNames}}">
+            {{#if (eq column.type "checkbox")}}
+              {{!--
+              *** CSS for custom checkbox is in app.css, but font awesome isn't playing nicely,
+                  so we'll  go with a plain ol' checkbox for now
+              <label class="ed-checkbox-wrapper">
+                {{downloader/checkbox checked=(contains row selectedRows) disabled=(not-eq row.status "available") change=(action toggleSelectRow row)}}
+                <span></span>
+              </label>
+              --}}
+              {{downloader/checkbox checked=(contains row selectedRows) disabled=(not-eq row.status "available") change=(action toggleSelectRow row)}}
+
+            {{else if (eq column.field "status")}}
+              {{#if (eq row.status "available")}}
+                {{fa-icon "circle" prefix="fas"}}
+              {{else}}
+                <span class="ed-status-icon-spacer"></span>
+              {{/if}}
+              {{capitalize row.status}}
+
+            {{else}}
+              {{get row column.field}}
+            {{/if}}
+          </td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </thead>
+</table>
