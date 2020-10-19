@@ -1,4 +1,4 @@
-* {
+*, ::after, ::before {
   box-sizing: border-box;
   font-family: "Courier New", Courier, monospace;
 }
@@ -34,6 +34,11 @@
 
 /*.ed-header button.checkbox {
 }*/
+
+.ed-header input[type=checkbox] {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 .ed-header h3.selected-label {
   margin-left: 17px;

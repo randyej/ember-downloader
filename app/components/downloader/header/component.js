@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
 
 export default Component.extend({
   classNames: ['ed-header'],
@@ -17,9 +18,18 @@ export default Component.extend({
       } else if (this.selectedRowCount > 0 && this.selectedRowCount < this.selectableRowCount) {
         icon = 'minus-square';
       }
+      scheduleOnce('afterRender', this, this.updateIndeterminate);
       return icon;
     }
   }),
+
+  updateIndeterminate() {
+    let isIndeterminate = false;
+    if (this.iconName === 'minus-square') {
+      isIndeterminate = true;
+    }
+    this.element.querySelector('input').indeterminate = isIndeterminate;
+  },
 
   selectedLabel: computed('selectedRowCount', {
     get() {

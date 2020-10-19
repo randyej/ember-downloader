@@ -1,6 +1,9 @@
+{{!--
 <button class="checkbox" {{action toggleSelectAll}}>
   {{fa-icon iconName prefix="far"}}
 </button>
+--}}
+{{downloader/checkbox checked=(eq iconName "check-square") change=(action toggleSelectAll)}}
 
 <h3 class="selected-label">{{selectedLabel}}</h3>
 
