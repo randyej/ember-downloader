@@ -99,6 +99,15 @@
   color: mediumseagreen;
 }
 
+.ed-status-icon-available {
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  border-radius: .4rem;
+  vertical-align: middle;
+  background-color: mediumseagreen;
+}
+
 .ed-status-icon-spacer {
   display: inline-block;
   width: 1em;

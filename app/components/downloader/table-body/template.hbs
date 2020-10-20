@@ -17,7 +17,8 @@
 
             {{else if (eq column.field "status")}}
               {{#if (eq row.status "available")}}
-                {{fa-icon "circle" prefix="fas"}}
+                {{!--fa-icon "circle" prefix="fas"--}}
+                <span class="ed-status-icon-available"></span>
               {{else}}
                 <span class="ed-status-icon-spacer"></span>
               {{/if}}
